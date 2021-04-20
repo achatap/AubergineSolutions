@@ -3,6 +3,7 @@ package com.pages;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.qa.util.WaitUtility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +17,9 @@ public class GooglePage {
 
 	@FindBy(xpath = "//input[@name='q']")
 	WebElement googleSearchField;
+
+	@FindBy(xpath = "//ul[@role='listbox']")
+	WebElement listElements;
 
 	private By dropdownList = By.xpath("//ul[@role='listbox']//li");
 
@@ -38,13 +42,18 @@ public class GooglePage {
 
 	public void printListOfDropDown(){
 
+		WaitUtility.waitForConditions(driver, listElements);
 		List<WebElement> completeList = driver.findElements(dropdownList);
+
 
 		for (WebElement ele: completeList
 			 ) {
 			System.out.println(ele.getText());
 		}
 
+	}
+
+	public void hitEnter(){
 		googleSearchField.sendKeys(Keys.RETURN);
 	}
 

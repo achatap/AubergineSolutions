@@ -31,6 +31,7 @@ public class GooglePageSteps {
 	@And("Print all the search options displayed in the console from google’s search field")
 	public void printAllTheSearchOptionsDisplayedInTheConsoleFromGoogleSSearchField() {
 		googlePage.printListOfDropDown();
+		googlePage.hitEnter();
 	}
 
 
