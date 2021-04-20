@@ -5,11 +5,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>CucumberPOMSeries</groupId>
-	<artifactId>CucumberPOMSeries</artifactId>
+	<groupId>Aubergine_Solutions</groupId>
+	<artifactId>AubergineSolutions</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>CucumberPOMSeries</name>
+	<name>Aubergine Solutions</name>
 	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
 
@@ -95,6 +95,11 @@
 			<version>4.1.2</version>
 		</dependency>
 
+<!--		<dependency>-->
+<!--			<groupId>org.projectlombok</groupId>-->
+<!--			<artifactId>lombok</artifactId>-->
+<!--			<version>1.18.20</version>-->
+<!--		</dependency>-->
 
 
 	</dependencies>
