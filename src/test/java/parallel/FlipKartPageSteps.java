@@ -30,4 +30,9 @@ public class FlipKartPageSteps {
     public void printNameAndPriceOfAllThreeProductsInTheConsole() {
         flipKartPage.getNameAndPriceOfProduct();
     }
+
+    @And("add all three product to the cart")
+    public void addAllThreeProductToTheCart() {
+        flipKartPage.add3ProductToCard();
+    }
 }

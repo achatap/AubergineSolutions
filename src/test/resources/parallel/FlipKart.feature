@@ -9,6 +9,7 @@ Feature: Checking availability and deliverable of product Feature
     And Click on TV & Appliances dropdown button and Navigate to AirConditioners > Window AC’s page
     And user select second third and sixth product and compare it
     And Print Name and price of all three products in the console
+  And add all three product to the cart
 
 
 

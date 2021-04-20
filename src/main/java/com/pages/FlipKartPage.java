@@ -35,6 +35,9 @@ public class FlipKartPage {
 	@FindBy(xpath = "//div[@id='fk-compare-page']")
 	WebElement comparePage;
 
+	@FindBy(xpath = "//button[text()='ADD TO CART']")
+	WebElement addToCart;
+
 	private By listOfProduct = By.xpath("//div[@class='col col-3-12 _1Z-FPJ']");
 
 	private By compareListElements = By.xpath("//div[@class='_3PzNI-']");
@@ -97,6 +100,23 @@ public class FlipKartPage {
 		System.out.println("Name " +productList.get(0).getText()+ " Rs."+ productList.get(3).getText().replace("₹","@").split("@")[1]);
 		System.out.println("Name " +productList.get(1).getText()+ " Rs."+ productList.get(4).getText().replace("₹","@").split("@")[1]);
 		System.out.println("Name " +productList.get(2).getText()+ " Rs."+ productList.get(5).getText().replace("₹","@").split("@")[1]);
+
+	}
+
+	public void add3ProductToCard(){
+
+
+
+		for(int i=0; i<3;i++){
+			driver.navigate().refresh();
+			WaitUtility.waitForConditions(driver,comparePage);
+			List<WebElement> productList = driver.findElements(listOfProduct);
+			productList.get(i).click();
+			addToCart.click();
+//			driver.navigate().refresh();
+			driver.navigate().back();
+			driver.navigate().back();
+		}
 
 	}
 
