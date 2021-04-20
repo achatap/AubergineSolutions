@@ -3,6 +3,7 @@ package parallel;
 import com.pages.GooglePage;
 import com.qa.factory.DriverFactory;
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -23,6 +24,21 @@ public class GooglePageSteps {
 	}
 
 	@When("user enter {string} in search text box")
-	public void userEnterInSearchTextBox(String arg0) {
+	public void userEnterInSearchTextBox(String text) {
+		googlePage.setGoogleSearchField(text);
 	}
+
+	@And("Print all the search options displayed in the console from google’s search field")
+	public void printAllTheSearchOptionsDisplayedInTheConsoleFromGoogleSSearchField() {
+		googlePage.printListOfDropDown();
+	}
+
+
+	@Then("result should contain flipkart url")
+	public void resultShouldContainFlipkartUrl() {
+		googlePage.clickOnFlipkartLink();
+
+	}
+
+
 }
