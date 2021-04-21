@@ -8,6 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FlipKartPage {
@@ -38,9 +39,26 @@ public class FlipKartPage {
 	@FindBy(xpath = "//button[text()='ADD TO CART']")
 	WebElement addToCart;
 
+	@FindBy(xpath = "//img[@alt='Flipkart']")
+	WebElement logo;
+
+	@FindBy(xpath = "//a[@class='_3SkBxJ']")
+	WebElement cardButton;
+
+	@FindBy(xpath = "//input[@placeholder='Enter delivery pincode']")
+	WebElement enterPinCode;
+
+	@FindBy(xpath = "//span[@class='UgLoKg']")
+	WebElement checkForPinCode;
+
+	private By isDeliveryMessage= By.xpath("//div[@class='_1tBBEs']");
+
 	private By listOfProduct = By.xpath("//div[@class='col col-3-12 _1Z-FPJ']");
 
 	private By compareListElements = By.xpath("//div[@class='_3PzNI-']");
+
+	@FindBy(xpath = "//div[@class='_12cXX4']")
+	WebElement deliverToBox;
 
 	public FlipKartPage(WebDriver driver) {
 		this.driver = driver;
@@ -105,20 +123,57 @@ public class FlipKartPage {
 
 	public void add3ProductToCard(){
 
+		WaitUtility.waitForConditions(driver,comparePage);
+		List<WebElement> productList = driver.findElements(By.xpath("//a[@class='_3L_M2k']"));
+		ArrayList<String> url= new ArrayList<>();
+		int i=0;
+		for (WebElement ele: productList
+			 ) {
+			url.add(ele.getAttribute("href"));
+			i++;
+			if(i==3) break;
+		}
+		System.out.println(url);
 
-
-		for(int i=0; i<3;i++){
+		for (String product: url
+			 ) {
 			driver.navigate().refresh();
-			WaitUtility.waitForConditions(driver,comparePage);
-			List<WebElement> productList = driver.findElements(listOfProduct);
-			productList.get(i).click();
+			driver.get(product);
+			WaitUtility.waitForConditions(driver,addToCart);
 			addToCart.click();
-//			driver.navigate().refresh();
-			driver.navigate().back();
-			driver.navigate().back();
+			driver.navigate().refresh();
+		}
+	}
+
+	public void clickOnCartIcon(){
+		logo.click();
+		cardButton.click();
+	}
+
+	public void setEnterPinCode(String pincode){
+		enterPinCode.sendKeys(pincode);
+	}
+
+	public void verifyPinCode(){
+		checkForPinCode.click();
+	}
+
+	public void printMessageOfDelivery(){
+
+		List<WebElement> message = driver.findElements(isDeliveryMessage);
+
+		for (WebElement ele: message
+			 ) {
+			System.out.println(ele.getText());
 		}
 
 	}
+
+	public void clickOnDeliverTo(){
+		deliverToBox.click();
+	}
+
+
 
 
 }

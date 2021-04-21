@@ -1,5 +1,6 @@
 package com.qa.util;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,6 +12,10 @@ public class WaitUtility {
         WebDriverWait wait= new WebDriverWait(driver,20);
         wait.until(ExpectedConditions.visibilityOf(ele));
 
+    }
+
+    public static boolean apply(WebDriver driver) {
+        return ((JavascriptExecutor)driver).executeScript("return document.readyState").equals("complete");
     }
 
 }
