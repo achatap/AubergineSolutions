@@ -142,19 +142,26 @@ public class FlipKartPage {
 			WaitUtility.waitForConditions(driver,addToCart);
 			addToCart.click();
 			driver.navigate().refresh();
+			cardButton.click();
 		}
 	}
 
 	public void clickOnCartIcon(){
+		WaitUtility.waitForConditions(driver,logo);
 		logo.click();
+		WaitUtility.waitForConditions(driver,cardButton);
 		cardButton.click();
 	}
 
 	public void setEnterPinCode(String pincode){
+		driver.navigate().refresh();
+		WaitUtility.waitForConditions(driver,enterPinCode);
 		enterPinCode.sendKeys(pincode);
 	}
 
 	public void verifyPinCode(){
+		WaitUtility.waitForConditions(driver,checkForPinCode);
+
 		checkForPinCode.click();
 	}
 
@@ -170,6 +177,7 @@ public class FlipKartPage {
 	}
 
 	public void clickOnDeliverTo(){
+		WaitUtility.waitForConditions(driver,deliverToBox);
 		deliverToBox.click();
 	}
 

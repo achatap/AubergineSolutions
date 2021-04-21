@@ -12,6 +12,6 @@ Feature: Checking availability and deliverable of product Feature
     And add all three product to the cart
     And Go to the cart and add your area Pincode "445304" and check the availability of the product delivery there
     And Print the message getting displayed for the availability delivery of the product in the console
-    And Click the Deliver to input box, available to the top of the page, and add another pin code "4110" and check the availability of the product delivery there
-
+    And Click the Deliver to input box, available to the top of the page, and add another pin code "411057" and check the availability of the product delivery there
+    And Print the message getting displayed for the availability delivery of the product in the console
 

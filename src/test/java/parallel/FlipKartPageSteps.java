@@ -47,11 +47,19 @@ public class FlipKartPageSteps {
     @And("Print the message getting displayed for the availability delivery of the product in the console")
     public void printTheMessageGettingDisplayedForTheAvailabilityDeliveryOfTheProductInTheConsole() {
         flipKartPage.printMessageOfDelivery();
+
+        try {
+            Thread.sleep(20000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
-    @And("Click the Deliver to input box, available to the top of the page, and add another pin code and check the availability of the product delivery there")
-    public void clickTheDeliverToInputBoxAvailableToTheTopOfThePageAndAddAnotherPinCodeAndCheckTheAvailabilityOfTheProductDeliveryThere() {
+    @And("Click the Deliver to input box, available to the top of the page, and add another pin code {string} and check the availability of the product delivery there")
+    public void clickTheDeliverToInputBoxAvailableToTheTopOfThePageAndAddAnotherPinCodeAndCheckTheAvailabilityOfTheProductDeliveryThere(String pin) {
         flipKartPage.clickOnDeliverTo();
-
+        flipKartPage.setEnterPinCode(pin);
+        flipKartPage.verifyPinCode();
     }
+
 }
