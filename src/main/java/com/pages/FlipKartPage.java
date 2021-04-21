@@ -151,10 +151,11 @@ public class FlipKartPage {
 		logo.click();
 		WaitUtility.waitForConditions(driver,cardButton);
 		cardButton.click();
+		driver.navigate().refresh();
+
 	}
 
 	public void setEnterPinCode(String pincode){
-		driver.navigate().refresh();
 		WaitUtility.waitForConditions(driver,enterPinCode);
 		enterPinCode.sendKeys(pincode);
 	}

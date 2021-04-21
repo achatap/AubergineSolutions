@@ -48,11 +48,6 @@ public class FlipKartPageSteps {
     public void printTheMessageGettingDisplayedForTheAvailabilityDeliveryOfTheProductInTheConsole() {
         flipKartPage.printMessageOfDelivery();
 
-        try {
-            Thread.sleep(20000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     @And("Click the Deliver to input box, available to the top of the page, and add another pin code {string} and check the availability of the product delivery there")
