@@ -58,6 +58,7 @@ public class GooglePage {
 	}
 
 	public void clickOnFlipkartLink(){
+		WaitUtility.waitForConditions(driver,flipkartLink);
 		flipkartLink.click();
 	}
 

@@ -1,15 +1,15 @@
 $(document).ready(function() {
 CucumberHTML.timelineItems.pushArray([
   {
-    "id": "530e77a4-3b8b-4946-89f7-cadb1746a0f5",
+    "id": "8534d427-3a14-4cfc-99f7-91100bc1a361",
     "feature": "Checking availability and deliverable of product Feature",
     "scenario": "go to flipkart site from google result list",
-    "start": 1618980223830,
+    "start": 1618981052658,
     "group": 17,
     "content": "",
     "tags": "",
-    "end": 1618980247889,
-    "className": "passed"
+    "end": 1618981073646,
+    "className": "failed"
   }
 ]);
 CucumberHTML.timelineGroups.pushArray([
