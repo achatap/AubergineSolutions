@@ -23,7 +23,10 @@ public class GooglePage {
 
 	private By dropdownList = By.xpath("//ul[@role='listbox']//li");
 
-	@FindBy(xpath = "//link[@href='https://www.flipkart.com/']/parent::div//h3[contains(text(),'Flipkart')]")
+//	@FindBy(xpath = "//link[@href='https://www.flipkart.com/']/parent::div//h3[contains(text(),'Flipkart')]")
+//	WebElement flipkartLink;
+
+	@FindBy(xpath = "//h3[@class='LC20lb DKV0Md']")
 	WebElement flipkartLink;
 
 

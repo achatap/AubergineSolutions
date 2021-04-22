@@ -112,8 +112,20 @@ public class FlipKartPage {
 	public void getNameAndPriceOfProduct(){
 
 		WaitUtility.waitForConditions(driver,comparePage);
+		WaitUtility.apply(driver);
+//		driver.navigate().refresh();
+//		driver.get(driver.getCurrentUrl());
+//		WaitUtility.apply(driver);
+//		WaitUtility.waitForConditions(driver,comparePage);
+
+		WebElement ele= driver.findElement(By.xpath("//div[@class='col col-3-12 _1Z-FPJ']"));
+
+		WaitUtility.waitForConditions(driver,ele);
+
 
 		List<WebElement> productList = driver.findElements(listOfProduct);
+
+		System.out.println(">>>>>>>>>>>>>>>>>>>>"+productList.size());
 
 		System.out.println("Name " +productList.get(0).getText()+ " Rs."+ productList.get(3).getText().replace("₹","@").split("@")[1]);
 		System.out.println("Name " +productList.get(1).getText()+ " Rs."+ productList.get(4).getText().replace("₹","@").split("@")[1]);
