@@ -21,6 +21,7 @@ public class FlipKartPageSteps {
         flipKartPage.hoverOverAppliances();
     }
 
+
     @And("user select second third and sixth product and compare it")
     public void userSelectSecondThirdAndSixthProductAndCompareIt() {
         flipKartPage.selectToCompare();
