@@ -4,6 +4,7 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.CapabilityType;
@@ -63,7 +64,11 @@ public class DriverFactory {
 
 		} else if (browser.equals("safari")) {
 			tlDriver.set(new SafariDriver());
-		} else {
+		}else if (browser.equals("edge")) {
+			WebDriverManager.edgedriver().setup();
+			tlDriver.set(new EdgeDriver());
+		}
+		else {
 			System.out.println("Please pass the correct browser value: " + browser);
 		}
 
