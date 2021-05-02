@@ -9,6 +9,7 @@ import io.cucumber.java.en.Then;
 public class FlipKartPageSteps {
 
     FlipKartPage flipKartPage= new FlipKartPage(DriverFactory.getDriver());
+    static String browserName = System.setProperty("bname", "chrome");
 
     @Given("user is on flipkart site")
     public void userIsOnFlipkartSite() {
